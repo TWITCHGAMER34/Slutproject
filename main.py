@@ -4,13 +4,12 @@ This is the main file of the game
 import random
 import tkinter as tk
 import tkinter.font as tkFont
-import random
 
 
 class Game:
     def __init__(self, root):
         # setting title
-        root.title("The girl who is missing")
+        root.title("The scary story")
         # setting window size
         width = 1200
         height = 600
@@ -29,7 +28,7 @@ class Game:
         GMessage_405["fg"] = "#ffffff"
         GMessage_405["justify"] = "center"
         GMessage_405["width"] = 1000
-        GMessage_405["text"] = "The girl who is missing"
+        GMessage_405["text"] = "The scary story"
         GMessage_405.place(x=110, y=100, width=1000, height=90)
 
         start = tk.Button(root)
@@ -132,79 +131,81 @@ class Game:
 
     def zdead(self):
         self.destroy()
-        GMessage_405 = self.setupText('You died', fontsize=40, fg="red")
-        GMessage_405.place(x=400, y=50, width=357, height=120)
+        print("You died")
+        ztext = self.setupText('You died', fontsize=40, fg="red")
+        ztext.place(x=400, y=50, width=357, height=120)
 
-        GButton_0 = self.setupButton('next', self.main, fontsize=20)
-        GButton_0.place(x=520, y=350, width=118, height=52, )
+        zknapp = self.setupButton('next', self.main, fontsize=20)
+        zknapp.place(x=520, y=350, width=118, height=52, )
 
     def main(self):
         self.destroy()  # destroy all widgets
-        GMessage_405 = self.setupText('How old are you?', fontsize=20, fg="white")
-        GMessage_405.place(x=140, y=50, width=357, height=120)
+        alder = self.setupText('How old are you?', fontsize=20, fg="white")
+        alder.place(x=140, y=50, width=357, height=120)
 
-        Gmessage_406 = self.setupText('Whats your name?', fontsize=20, fg="white")
-        Gmessage_406.place(x=650, y=50, width=357, height=120)
+        namn = self.setupText('Whats your name?', fontsize=20, fg="white")
+        namn.place(x=650, y=50, width=357, height=120)
 
-        self.GEntry_1 = self.setupEntry()
-        self.GEntry_1.place(x=780, y=140, width=118, height=52)
+        self.entry1 = self.setupEntry()
+        self.entry1.place(x=780, y=140, width=118, height=52)
 
-        self.GEntry_0 = self.setupEntry()
-        self.GEntry_0.place(x=240, y=140, width=118, height=52)
+        self.entry2 = self.setupEntry()
+        self.entry2.place(x=240, y=140, width=118, height=52)
 
-        GButton_0 = self.setupButton('next', self.state2, fontsize=20)
-        GButton_0.place(x=500, y=350, width=118, height=52, )
+        knapp1 = self.setupButton('next', self.state2, fontsize=20)
+        knapp1.place(x=500, y=350, width=118, height=52, )
 
     def state2(self):
-        input = self.GEntry_0.get()
-        input2 = self.GEntry_1.get()
+        global input2
+        input = self.entry1.get()
+        input2 = self.entry2.get()
         self.destroy()
 
-        GMessage_405 = self.setupText(f'Hello %s, you are %s years old, correct?' % (input2, input), fontsize=30, fg="white")
-        GMessage_405.place(x=400, y=20, width=357, height=300)
+        state2text = self.setupText(f'Hello %s, you are %s years old, correct?' % (input, input2), fontsize=30, fg="white")
+        state2text.place(x=400, y=20, width=357, height=300)
 
-        GButton_0 = self.setupButton('Yes', self.state3, fontsize=20)
-        GButton_0.place(x=450, y=350, width=118, height=52)
+        state2knapp = self.setupButton('Yes', self.state3, fontsize=20)
+        state2knapp.place(x=450, y=350, width=118, height=52)
 
-        GButton_1 = self.setupButton('No', self.main, fontsize=20)
-        GButton_1.place(x=600, y=350, width=118, height=52)
+        state2knapp1 = self.setupButton('No', self.main, fontsize=20)
+        state2knapp1.place(x=600, y=350, width=118, height=52)
 
     def state3(self):
         self.destroy()
-        GMessage_405 = self.setupText(
+        state3text = self.setupText(
             'You wake up in a dark room, you dont know where you are or how you got here, you see a door in front of '
             'you, to your right and to your left, choose a door.',
             fontsize=33, fg="white")
-        GMessage_405.place(x=-250, y=10, width=1100, height=600)
+        state3text.place(x=-250, y=10, width=1100, height=600)
 
-        GButton_0 = self.setupButton('Open the door infront of you', self.state4, fontsize=15)
-        GButton_0.place(x=500, y=200, width=300, height=50)
+        state3knapp = self.setupButton('Open the door infront of you', self.state4, fontsize=15)
+        state3knapp.place(x=500, y=200, width=300, height=50)
 
-        GButton_1 = self.setupButton('Open the door to your right', self.state5, fontsize=15)
-        GButton_1.place(x=500, y=300, width=300, height=50)
+        state3knapp1 = self.setupButton('Open the door to your right', self.state5, fontsize=15)
+        state3knapp1.place(x=500, y=300, width=300, height=50)
 
-        GButton_2 = self.setupButton('Open the door to your left', self.state6, fontsize=15)
-        GButton_2.place(x=500, y=100, width=300, height=50)
+        state3knapp2 = self.setupButton('Open the door to your left', self.state6, fontsize=15)
+        state3knapp2.place(x=500, y=100, width=300, height=50)
 
     def state4(self):
         self.destroy()
-        GMessage_405 = self.setupText(
+        state4text = self.setupText(
             'You open the door in-front of you, you see a staircase, you go up the stairs and you see a door, you open '
             'the door and you see a room with a table and a chair, you sit down and you see a piece of paper on the '
             'table, you pick it up and it says "You are in a room, you have to find a way out, you can go up the stairs'
             'or you can go down the stairs, choose wisely"',
             fontsize=20, fg="white")
-        GMessage_405.place(x=-250, y=20, width=1000, height=600)
+        state4text.place(x=-250, y=20, width=1000, height=600)
 
-        GButton_0 = self.setupButton('Go up the stairs', self.state7, fontsize=20)
-        GButton_0.place(x=500, y=150, width=300, height=52)
+        state4knapp = self.setupButton('Go up the stairs', self.state7, fontsize=20)
+        state4knapp.place(x=500, y=150, width=300, height=52)
 
-        GButton_1 = self.setupButton('Go down the stairs', self.state8, fontsize=20)
-        GButton_1.place(x=500, y=250, width=300, height=52)
+        state4knapp1 = self.setupButton('Go down the stairs', self.state8, fontsize=20)
+        state4knapp1.place(x=500, y=250, width=300, height=52)
 
     def state5(self):
         self.destroy()
-        GMessage_405 = self.setupText("""You open the door on the right hand side of you,
+        state5text = self.setupText("""You open the door on the right hand side of you,
          and step into a dimly lit room. The air is heavy with the stench of rot and decay, and the walls are lined with
          shelves containing jars filled with strange, twisted specimens.
          As you make your way further into the room, you notice movement out of the corner of your eye. You turn to see 
@@ -213,9 +214,10 @@ class Game:
          Your heart races as you realize that you are face to face with a zombie. You try to back away, but your foot 
          catches on a loose floorboard and you stumble backwards, falling to the ground.
          """,
-         fontsize=15, fg="white")
-        GMessage_405.place(x=50, y=20, width=500, height=600)
-        GMessage_406 = self.setupText("""
+                              fontsize=15, fg="white")
+        state5text.place(x=50, y=20, width=500, height=600)
+
+        state5text2 = self.setupText("""
          The zombie closes in on you, its fingers clawing at the air. You scramble backwards, desperately searching for 
          a way out. As you look around, you notice that the jars on the shelves are shaking and rattling, and something 
          inside them is moving. 
@@ -228,27 +230,87 @@ class Game:
          You turn to run, but you realize that you are trapped. The zombie has blocked your only exit. As the creature 
          reaches out to grab you, you close your eyes and brace for impact, praying that someone, anyone, will come to 
          your rescue.""", fontsize=13, fg="white")
-        GMessage_406.place(x=450, y=0, width=400, height=600)
+        state5text2.place(x=450, y=0, width=400, height=600)
 
-        GButton_0 = self.setupButton('Fight the zombie', self.fzombie, fontsize=20)
-        GButton_0.place(x=850, y=250, width=300, height=52)
+        state5knapp = self.setupButton('Fight the zombie', self.fzombie, fontsize=20)
+        state5knapp.place(x=850, y=250, width=300, height=52)
 
     def state6(self):
-        pass
+        self.destroy()
+        state6text = self.setupText("""You open the door on the left hand side of you, and step into a dimly lit room. 
+        The air is heavy with the stench of rot and decay, and the walls are lined with shelves containing jars filled 
+        with strange, twisted specimens. As you make your way further into the room, you notice movement out of the
+        corner of your eye. You turn to see a grotesque figure slowly emerging from the shadows. Its skin is mottled
+        and decaying, its eyes sunken and lifeless. It lurches towards you, emitting a low, guttural growl. Your heart
+        is racing as you realize that you are face to face with a zombie. You try to back away, but your foot catches
+        on a loose floorboard and you stumble backwards, falling to the ground. The zombie closes in on you, its fingers
+        clawing at the air. You scramble backwards, desperately searching for a way out. As you look around, you notice
+        that the jars on the shelves are shaking and rattling, and something inside them is moving. With a sickening
+        realization, you realize that the jars contain other undead creatures, waiting to be unleashed upon the living.
+        As the zombie draws nearer, you know that your only chance for survival is to fight your way out of the room.
+        """, fontsize=15, fg="white")
+        state6text.place(x=50, y=20, width=500, height=600)
+
+        state6knapp = self.setupButton('Fight the zombie', self.fzombie, fontsize=20)
+        state6knapp.place(x=850, y=250, width=300, height=52)
+
+        state6knapp2 = self.setupButton('Run...', self.zdead, fontsize=20)
+        state6knapp2.place(x=850, y=250, width=300, height=52)
 
     def fzombie(self):
-        k = random.randint(1, 2)
-        if k == 1:
-            self.state7()
+        fzombieval = random.randint(1, 2)
+        if fzombieval == 1:
+            self.zstate2()
         else:
             self.zdead()
 
+    def zstate2(self):
+        zstate2text = self.setupText("""
+        You successfully killed the zombie, you see a staircase, you go up the stairs and you see a door, you open
+        the door and you see a room with a table and a chair, you sit down and you see a piece of paper on the
+        table, you pick it up and it says "You are in a room, you have to find a way out, you can go up the stairs
+        or you can go down the stairs, choose wisely"
+        """, fontsize=20, fg="white")
+        zstate2text.place(x=-250, y=20, width=1000, height=600)
+
+        zstate2knapp = self.setupButton('Go up the stairs', self.state7, fontsize=20)
+        zstate2knapp.place(x=500, y=150, width=300, height=52)
+
+        zstate2knapp1 = self.setupButton('Go down the stairs', self.state8, fontsize=20)
+        zstate2knapp1.place(x=500, y=250, width=300, height=52)
 
     def state7(self):
-        pass
+        self.destroy()
+        state7text = self.setupText("""
+        You chose to go up the stairs, you are going up and going up, until you reach the top, you see a door, you open
+        the door and you hear something strange from behind, what do you do?
+        """, fontsize=20, fg="white")
+        state7text.place(x=-250, y=20, width=1000, height=600)
+
+        state7knapp = self.setupButton('Go back down the stairs', self.state8, fontsize=20)
+        state7knapp.place(x=500, y=150, width=300, height=52)
+
+        state7knapp1 = self.setupButton('Stay, and wait', self.zdead, fontsize=20)
+        state7knapp1.place(x=500, y=250, width=300, height=52)
 
     def state8(self):
-        pass
+        self.destroy()
+        state8text = self.setupText(f"""
+        You chose to go down the stairs, you are going down and going down, until you reach the bottom, you see a door, you open
+        the door, you see a room with a table and a chair, you sit down and you hear someone calling your name, "{input2}!
+        what are you doing here?", you look up and you see your best friend, you get up and you hug him, you say "I'm so
+        glad you're here, I was so scared, I thought I was going to die", you both start crying, you say "This place is so
+        scary, I don't know how I'm going to get out of here", your friend says "Don't worry, I'll help you get out of here",
+        you say "Thank you so much, I don't know what I would do without you", you both start crying again, you say "I'm so
+        glad you're here, I was so scared, I thought I was going to die", you both start crying.
+        """, fontsize=20, fg="white")
+        state8text.place(x=-250, y=20, width=1000, height=600)
+
+        state8knapp = self.setupButton('Listen to your friend', self.state6, fontsize=20)
+        state8knapp.place(x=500, y=150, width=300, height=52)
+
+        state8knapp1 = self.setupButton('Ignore your friend', self.zdead, fontsize=20)
+        state8knapp1.place(x=500, y=250, width=300, height=52)
 
     def state9(self):
         pass
