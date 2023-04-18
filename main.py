@@ -161,7 +161,8 @@ class Game:
         input2 = self.entry2.get()
         self.destroy()
 
-        state2text = self.setupText(f'Hello %s, you are %s years old, correct?' % (input, input2), fontsize=30, fg="white")
+        state2text = self.setupText(f'Hello %s, you are %s years old, correct?' % (input, input2), fontsize=30,
+                                    fg="white")
         state2text.place(x=400, y=20, width=357, height=300)
 
         state2knapp = self.setupButton('Yes', self.state3, fontsize=20)
@@ -214,7 +215,7 @@ class Game:
          Your heart races as you realize that you are face to face with a zombie. You try to back away, but your foot 
          catches on a loose floorboard and you stumble backwards, falling to the ground.
          """,
-                              fontsize=15, fg="white")
+                                    fontsize=15, fg="white")
         state5text.place(x=50, y=20, width=500, height=600)
 
         state5text2 = self.setupText("""
