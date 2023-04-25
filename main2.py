@@ -41,8 +41,8 @@ def window():
     height = 243  # set the height of the window
     screenwidth = root_el.winfo_screenwidth()  # get the width of the screen
     screenheight = root_el.winfo_screenheight()  # get the height of the screen
-    align_str = f'{width:d}x{height:d}+{(screenwidth - width) / 2:d}' \
-                f'+{(screenheight - height) / 2:d}'  # set the position of the window
+    align_str = f'{width}x{height}+{int((screenwidth - width) / 2)}' \
+                f'+{int((screenheight - height) / 2)}'  # set the position of the window
 
     root_el.configure(bg="#000000")  # set the background color of the window
     root_el.geometry(align_str)  # set the size of the window
@@ -141,8 +141,8 @@ class Setup:  # set up the game
         height = 600  # set the height of the window
         screenwidth = root_el.winfo_screenwidth()  # get the width of the screen
         screenheight = root_el.winfo_screenheight()  # get the height of the screen
-        align_str = f'{width:d}x{height:d}+{(screenwidth - width) / 2:d}' \
-                    f'+{(screenheight - height) / 2:d}'  # set the position of the window
+        align_str = f'{width}x{height}+{int((screenwidth - width) / 2)}+' \
+                    f'{int((screenheight - height) / 2)}'
         root_el.configure(bg="#000000")  # set the background color of the window
         root_el.geometry(align_str)  # set the size of the window
         root_el.resizable(width=False, height=False)  # set the window to be resizable or not
