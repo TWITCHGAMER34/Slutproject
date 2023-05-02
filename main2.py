@@ -28,6 +28,22 @@ LINK = r"https://official-joke-api.appspot.com/random_joke"  # link to the api
 joke = jokes(LINK)  # get the joke
 
 
+def weather():  # get weather from the api
+    """
+    This function is used to get the weather from the api
+    :return:
+    """
+    access_key = "49fd86502d789706569dd23f26182bed"  # access key to the api
+    query = "Karlstad"  # query to the api
+    link = f"http://api.weatherstack.com/current?access_key={access_key}&query={query}"  # link to the api
+    data = requests.get(link, timeout=5)  # get the data from the api
+    t_t = json.loads(data.text)  # load the data
+    return t_t  # return the data
+
+
+weather = weather()  # get the weather
+
+
 def window():
     """
     This method is used to set up the window for the game
@@ -189,7 +205,11 @@ class Setup:  # set up the game
                                 f'\n{joke["punchline"]}', font_size=15,
                                 f_g="white")  # set the joke of the day
         joke_print.place(x=0, y=400, width=1200, height=150)  # set the position
-        # of the joke of the day
+        # of the joke of the da
+        weather_print = setup_text(f'Weather: \n {weather["current"]["weather_descriptions"][0]}'
+                                   f'\n {weather["current"]["temperature"]} degrees', font_size=15,
+                                   f_g="white")  # set the weather
+        weather_print.place(x=0, y=300, width=1200, height=100)  # set the position
 
     def start(self):
         """
