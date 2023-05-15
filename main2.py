@@ -150,7 +150,7 @@ class Setup:  # set up the game
         self.entry2 = None  # set the entry to none
         self.entry1 = None  # set the entry to none
         self.name = None  # set the name to none
-        self.states = states_el  # set the states to the states
+        self.states = states_el  #set the states to the input
         # setting title
         root_el.title("The scary story")  # set the title of the window
         # setting window size
