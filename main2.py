@@ -507,7 +507,7 @@ class States(Setup):  # create the states class
             crying, you say "This place is so scary, I don't know how I'm going to get out of here", your friend says 
             "Don't worry, I'll help you get out of here", you say "Thank you so much, I don't know what I would do 
             without you", you both start crying again, you say "I'm so glad you're here, I was so scared, I thought 
-            I was going to die", you both start crying.""", font_size=12, f_g="white")
+            I was going to die", you both start crying!""", font_size=12, f_g="white")
         state8text.place(x=-250, y=20, width=1000, height=600)  # set the position
         # of the text of the sixth room
 
