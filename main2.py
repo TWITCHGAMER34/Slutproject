@@ -52,7 +52,7 @@ def window():
     :return:
     """
     root_el = tk.Tk()  # create the window
-    root_el.title("The girl who got missing")  # set the title of the window
+    root_el.title("The scary story")  # set the title of the window
     # setting window size
     width = 600  # set the width of the window
     height = 243  # set the height of the window
@@ -184,7 +184,7 @@ class Setup:  # set up the game
         start["font"] = font  # set the font of the start button
         start["fg"] = "#ffffff"  # set the color of the text of the start button
         start["justify"] = "center"  # set the justification of the text of the start button
-        start["text"] = "Klick here to play!"  # set the text of the start button
+        start["text"] = "Click here to play!"  # set the text of the start button
         start.place(x=500, y=200, width=200, height=100)  # set the position of the start button
         start["command"] = self.start  # set the command of the start button
 
@@ -225,10 +225,10 @@ class Setup:  # set up the game
         :return:
         """
         destroy()  # destroy all widgets
-        alder = setup_text('How old are you?', font_size=20, f_g="white")  # set the text of the age
+        alder = setup_text('Whats your name?', font_size=20, f_g="white")  # set the text of the age
         alder.place(x=140, y=50, width=357, height=120)  # set the position of the text of the age
 
-        namn = setup_text('Whats your name?', font_size=20, f_g="white")  # set the text of the name
+        namn = setup_text('How old are you?', font_size=20, f_g="white")  # set the text of the name
         namn.place(x=650, y=50, width=357, height=120)  # set the position of the text of the name
 
         self.entry1 = setup_entry()  # set the entry of the age
@@ -251,7 +251,7 @@ class Setup:  # set up the game
         namn = self.entry2.get()  # get the name
         destroy()  # destroy all widgets
 
-        state2text = setup_text(f'Hello {alder}, you are {namn} years old, correct?', font_size=30,
+        state2text = setup_text(f'Hello {namn}, you are {alder} years old, correct?', font_size=30,
                                 f_g="white")  # set the text of the confirm main
         state2text.place(x=400, y=20, width=357, height=300)  # set the
         # position of the text of the confirm main
@@ -507,7 +507,7 @@ class States(Setup):  # create the states class
             crying, you say "This place is so scary, I don't know how I'm going to get out of here", your friend says 
             "Don't worry, I'll help you get out of here", you say "Thank you so much, I don't know what I would do 
             without you", you both start crying again, you say "I'm so glad you're here, I was so scared, I thought 
-            I was going to die", you both start crying.""", font_size=15, f_g="white")
+            I was going to die", you both start crying.""", font_size=12, f_g="white")
         state8text.place(x=-250, y=20, width=1000, height=600)  # set the position
         # of the text of the sixth room
 
